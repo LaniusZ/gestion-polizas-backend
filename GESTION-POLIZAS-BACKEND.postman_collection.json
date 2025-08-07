@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "fa95a573-e285-4d04-99fe-9d3548c2b6e7",
+		"name": "GESTION-POLIZAS-BACKEND",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5519506"
+	},
+	"item": [
+		{
+			"name": "Crear póliza",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"rutTitular\": \"12345678-9\",\r\n  \"fechaEmision\": \"2025-08-06\",\r\n  \"planSalud\": \"Plan Vida Sana\",\r\n  \"prima\": 65000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/policies",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"policies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar pólizas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/policies?estado=activa&fechaEmision=2025-08-06",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"policies"
+					],
+					"query": [
+						{
+							"key": "estado",
+							"value": "activa"
+						},
+						{
+							"key": "fechaEmision",
+							"value": "2025-08-06"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener póliza por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/policies/1d328447-afc2-4fff-b55b-e63b7f9ea0a3",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"policies",
+						"1d328447-afc2-4fff-b55b-e63b7f9ea0a3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener póliza por ID Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"estado\": \"activa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/policies/1d328447-afc2-4fff-b55b-e63b7f9ea0a3/status",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"policies",
+						"1d328447-afc2-4fff-b55b-e63b7f9ea0a3",
+						"status"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "localhost:3000",
+			"type": "default"
+		}
+	]
+}
